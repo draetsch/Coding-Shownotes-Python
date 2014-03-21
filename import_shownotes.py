@@ -11,6 +11,8 @@ script_path = os.path.join(os.path.expanduser("~"), 'Library', 'Application Supp
 sys.path.append(script_path)
 from sws_python64 import *
 
+filepath = os.path.join(os.path.expanduser("~"), 'Desktop', 'freak-show-128.osf')
+
 # iterate all tracks and find the one with the specified name
 def getTrackByName(name):
 	for i in range(RPR_GetNumTracks()):
@@ -62,8 +64,8 @@ def createShownoteItem():
 			RPR_SetMediaItemPosition(item, position, False)
 			POD_SetMediaItemNote(item, note.encode('ascii', 'replace'))
 
-# open the file and read the content into an array
-with io.open('/Users/Malte/Desktop/freak-show-128.osf', 'r', encoding='utf-8') as f:
+# open the file and read the content into an arrayreap
+with io.open(filepath, 'r', encoding='utf-8') as f:
 	lines = f.readlines()[15:]
 
 # get the first starttime. This is our 0 time
